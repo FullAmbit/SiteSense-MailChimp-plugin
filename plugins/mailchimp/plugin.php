@@ -21,7 +21,12 @@ class plugin_mailchimp{
 		}
 		$name=explode(' ',$apiFields['name'],2);
 		$merge_vars=array('FNAME'=>$name[0],'LNAME'=>$name[1],'OPTIN_IP'=>$_SERVER['REMOTE_ADDR'],'OPTIN_TIME'=>date('Y-m-d H:i:s'));
-		$result=$this->api->listSubscribe($this->listNumber,$apiFields['email'],$merge_vars);
+		if(isset($apiFields['list'])){
+			$listNumber=$apiFields['list'];
+		}else{
+			$listNumber=$this->listNumber;
+		}
+		$result=$this->api->listSubscribe($listNumber,$apiFields['email'],$merge_vars);
 		if(!$result){
 			return $this->api->errorMessage;
 		}else{
