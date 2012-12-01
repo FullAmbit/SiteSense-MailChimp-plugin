@@ -6,7 +6,7 @@
  */
 require_once(__DIR__.'/MCAPImini.class.inc.php');
 class plugin_mailchimp{
-	protected $apiKey='31b88f4cce502d251ff00c4f2bda11ea-us5';
+	protected $apiKey='31b88f4cce502d251ff00c4f2bda11ea-us5'; // sample API key, use your real API code here!
 	protected $listNumber='a7df7b21b5'; //enter the ID of the list to subscribe the user to here
 	protected $api;
 	function __construct(){
